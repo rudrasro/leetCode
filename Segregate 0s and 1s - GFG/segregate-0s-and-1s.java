@@ -34,19 +34,23 @@ public class Main {
 //User function Template for Java
 
 class Solution {
+    void swap(int arr[], int a, int b){
+        int temp = arr[a];
+        arr[a] = arr[b];
+        arr[b] = temp;
+    }
     void segregate0and1(int[] arr, int n) {
         // code here
-        int count = 0;
-        for(int i = 0;i<n;i++){
-            if(arr[i]==0){
-                count++;
+        int i = 0;
+        int j = n-1;
+        while(i<=j){
+            if(arr[i]==1){
+                swap(arr,i,j);
+                j--;
             }
-        }
-        for(int i = 0;i<count;i++){
-            arr[i] = 0;
-        }
-        for(int i = count;i<n;i++){
-            arr[i] = 1;
+            else{
+                i++;
+            }
         }
     }
 
